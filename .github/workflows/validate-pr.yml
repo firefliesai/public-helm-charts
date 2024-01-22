@@ -18,16 +18,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check target and source branches
-        run: |
-          target_branch=${{ github.event.pull_request.base.ref }}
-          source_branch=${{ github.event.pull_request.head.ref }}
-
-          if [[ $target_branch == "main" && $source_branch != "staging" ]]; then
-            echo "Error: Pull request from 'main' branch should have 'staging' as the source branch"
-            exit 1
-          fi
-
       - name: Lint Helm Charts
         run: |
           for charts in `ls -1 charts/`; do helm lint charts/$charts/; done
