@@ -62,6 +62,8 @@ spec:
               protocol: TCP
           resources:
             {{- toYaml .Values.webhookResources | nindent 12 }}
+          autoscaling:
+            {{- toYaml .Values.webhookAutoscaling | nindent 12 }}
           volumeMounts:
             - name: data
               mountPath: {{ if semverCompare ">=1.0" (.Values.image.tag | default .Chart.AppVersion) }}/home/node/.n8n{{ else }}/root/.n8n{{ end }}
