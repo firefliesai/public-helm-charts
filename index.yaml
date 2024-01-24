@@ -10,6 +10,44 @@ entries:
               url: https://github.com/8gears/n8n-helm-chart/pull/63
     apiVersion: v2
     appVersion: 1.22.3
+    created: "2024-01-24T13:23:59.984583371Z"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 18.6.1
+    description: A Kubernetes Helm chart for n8n a free and open fair-code licensed
+      node based Workflow Automation Tool. Easily automate tasks across different
+      services.
+    digest: 311cb6de9ac39d72177ab3ddd81c77ed97ac8f34b8474e8767183e9f7782ae99
+    home: https://github.com/8gears/n8n-helm-chart
+    icon: https://avatars1.githubusercontent.com/u/45487711?s=200&v=4
+    keywords:
+    - Workflow Automation
+    - Workflow
+    - iPaaS
+    - integration-framework
+    - low-code-plattform
+    - low-code
+    maintainers:
+    - name: Vadim Bauer
+    name: n8n
+    sources:
+    - https://github.com/n8n-io/n8n
+    - https://n8n.io/
+    type: application
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/n8n-0.20.3/n8n-0.20.3.tgz
+    version: 0.20.3
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: "When using existingSecret the path to the file was not added to n8n.configFiles in the helpers."
+          links:
+            - name: "PR #63"
+              url: https://github.com/8gears/n8n-helm-chart/pull/63
+    apiVersion: v2
+    appVersion: 1.22.3
     created: "2024-01-23T19:19:36.240915233Z"
     dependencies:
     - condition: redis.enabled
@@ -77,4 +115,4 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/n8n-0.20.1/n8n-0.20.1.tgz
     version: 0.20.1
-generated: "2024-01-23T19:19:36.240926695Z"
+generated: "2024-01-24T13:23:59.984600974Z"
