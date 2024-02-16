@@ -153,4 +153,84 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/n8n-0.20.1-rc.0/n8n-0.20.1-rc.0.tgz
     version: 0.20.1-rc.0
-generated: "2024-01-24T18:50:33.428397135Z"
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: "When using existingSecret the path to the file was not added to n8n.configFiles in the helpers."
+          links:
+            - name: "PR #63"
+              url: https://github.com/8gears/n8n-helm-chart/pull/63
+    apiVersion: v2
+    appVersion: 1.22.3
+    created: "2024-02-16T05:56:50.888416644Z"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 18.6.1
+    description: A Kubernetes Helm chart for n8n a free and open fair-code licensed
+      node based Workflow Automation Tool. Easily automate tasks across different
+      services.
+    digest: 899a1547cbc6e416b542370f17191020001d0e361aca8d638a74708e0a9f11d7
+    home: https://github.com/8gears/n8n-helm-chart
+    icon: https://avatars1.githubusercontent.com/u/45487711?s=200&v=4
+    keywords:
+    - Workflow Automation
+    - Workflow
+    - iPaaS
+    - integration-framework
+    - low-code-plattform
+    - low-code
+    maintainers:
+    - name: Vadim Bauer
+    name: n8n
+    sources:
+    - https://github.com/n8n-io/n8n
+    - https://n8n.io/
+    type: application
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/n8n-0.20.1-rc.0/n8n-0.20.1-rc.0.tgz
+    version: 0.20.1-rc.0
+  thanos:
+  - annotations:
+      category: Analytics
+      images: |
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r96
+        - name: thanos
+          image: docker.io/bitnami/thanos:0.34.0-debian-11-r3
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 0.34.0
+    created: "2024-02-16T05:56:51.050571766Z"
+    dependencies:
+    - condition: minio.enabled
+      name: minio
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Thanos is a highly available metrics system that can be added on
+      top of existing Prometheus deployments, providing a global query view across
+      all Prometheus installations.
+    digest: de631c763c8aa99e47b4ba23a782e8fd688e8c8916579852f070b081d2660e09
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/thanos/img/thanos-stack-220x234.png
+    keywords:
+    - analytics
+    - monitoring
+    - prometheus
+    - thanos
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: thanos
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/thanos
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/thanos-13.0.0/thanos-13.0.0.tgz
+    version: 13.0.0
+generated: "2024-02-16T05:56:51.050588588Z"
