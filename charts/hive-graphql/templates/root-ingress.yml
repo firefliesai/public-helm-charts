@@ -1,0 +1,34 @@
+{{- $url := printf "%s" .Values.global.appBaseUrl }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.ingress.namespace }}-root-ingress
+  namespace: {{ .Values.ingress.namespace }}
+  annotations:
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: {{ $url }}
+      http:
+        paths:
+          - backend:
+              service:
+                name: app-svc
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+          - backend:
+              service:
+                name: server-svc
+                port:
+                  number: 80
+            path: /graphql
+            pathType: Prefix
+{{- with .Values.ingress.root.tls }}
+  tls:
+    {{- tpl (toYaml .) $ | nindent 4 }}
+{{- end }}
