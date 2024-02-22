@@ -21,9 +21,7 @@ spec:
                   number: 80
             path: /
             pathType: Prefix
-{{- if .Values.ingress.useTls }}
+{{- with .Values.ingress.api.tls }}
   tls:
-    - hosts:
-        - {{ $url }}
-      secretName: api-hive-k8s
+    {{- tpl (toYaml .) $ | nindent 4 }}
 {{- end }}
