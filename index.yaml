@@ -1,5 +1,53 @@
 apiVersion: v1
 entries:
+  discourse:
+  - annotations:
+      category: Forum
+      images: |
+        - name: discourse
+          image: docker.io/bitnami/discourse:3.2.1-debian-12-r2
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r18
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 3.2.1
+    created: "2024-04-22T09:15:28.919156452Z"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 19.X.X
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 15.X.X
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Discourse is an open source discussion platform with built-in moderation
+      and governance systems that let discussion communities protect themselves from
+      bad actors even without official moderators.
+    digest: b27caa3aec66a9244ab58002861038f0817bdc3e4f625debf99bcf5662c90784
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/discourse/img/discourse-stack-220x234.png
+    keywords:
+    - community
+    - forum
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    - email: username.taken@gmail.com
+      name: paulczar
+    - email: preteluca@gmail.com
+      name: lucaprete
+    name: discourse
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/discourse
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/discourse-13.0.2/discourse-13.0.2.tgz
+    version: 13.0.2
   livekit-server:
   - apiVersion: v2
     appVersion: v1.5.3
@@ -286,4 +334,4 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/thanos-13.0.0/thanos-13.0.0.tgz
     version: 13.0.0
-generated: "2024-04-18T13:51:01.246475259Z"
+generated: "2024-04-22T09:15:28.919172301Z"
