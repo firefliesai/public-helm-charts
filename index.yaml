@@ -51,6 +51,19 @@ entries:
   livekit-server:
   - apiVersion: v2
     appVersion: v1.5.3
+    created: "2024-05-03T13:03:14.890844278Z"
+    description: Real-time infrastructure for developers. LiveKit is the open source
+      stack for streaming audio, video, and data.
+    digest: 43beb6ca9440f23c49a3022a78da7973e28e29fb17a37f38df0eefd0ec8d81e4
+    name: livekit-server
+    sources:
+    - https://github.com/livekit/livekit
+    type: application
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/livekit-server-1.6.0/livekit-server-1.6.0.tgz
+    version: 1.6.0
+  - apiVersion: v2
+    appVersion: v1.5.3
     created: "2024-04-03T12:46:27.49123752Z"
     description: Real-time infrastructure for developers. LiveKit is the open source
       stack for streaming audio, video, and data.
@@ -334,4 +347,4 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/thanos-13.0.0/thanos-13.0.0.tgz
     version: 13.0.0
-generated: "2024-04-22T09:15:28.919172301Z"
+generated: "2024-05-03T13:03:14.890869095Z"
