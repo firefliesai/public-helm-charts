@@ -6,4 +6,4 @@ name: livekit-server
 sources:
 - https://github.com/livekit/livekit
 type: application
-version: 1.5.3
+version: 1.6.0
