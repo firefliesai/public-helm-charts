@@ -44,6 +44,7 @@ livekit:
     # secretName: <tlssecret>
     loadBalancerAnnotations: {}
     loadBalancerIP: ""
+    serviceType: "LoadBalancer"
   # webhook: <webhook configuration>
   # room: <default settings for new rooms>
   # region: <set for multi-region deploys>
