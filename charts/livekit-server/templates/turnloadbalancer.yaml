@@ -11,7 +11,7 @@ metadata:
   {{- end }}
 spec:
   type: {{ default "LoadBalancer" .Values.livekit.turn.serviceType }}
-  {{- if and (eq .Values.livekit.turn.serviceType "LoadBalancer") (not (empty .Values.livekit.turnLoadbalancer.loadBalancerIP)) }}
+  {{- if and (eq .Values.livekit.turn.serviceType "LoadBalancer") (not (empty .Values.turnLoadbalancer.loadBalancerIP)) }}
   loadBalancerIP: { { .Values.turnLoadbalancer.loadBalancerIP }}
   {{- end }}
   ports:
