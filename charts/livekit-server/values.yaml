@@ -70,6 +70,7 @@ loadBalancer:
 
 turnLoadbalancer:
   enable: true
+  loadBalancerIP: ""
 
 autoscaling:
   enabled: false
