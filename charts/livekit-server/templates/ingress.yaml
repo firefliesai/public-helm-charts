@@ -25,6 +25,10 @@ metadata:
     networking.gke.io/managed-certificates: {{ or .Values.loadBalancer.certificateName "managed-cert" }}
     kubernetes.io/ingress.class: "gce"
   {{- end }}
+  # gke
+  {{ - if eq .Values.loadBalancer.type "gke" }}
+  kubernetes.io/ingress.global-static-ip-name: {{ .Values.loadBalancer.staticIpName }}
+  {{ - end }}
   # DO with cert manager
   {{- if eq .Values.loadBalancer.type "do" }}
     cert-manager.io/cluster-issuer: {{ .Values.loadBalancer.clusterIssuer }}
