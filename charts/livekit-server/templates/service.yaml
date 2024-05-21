@@ -1,3 +1,4 @@
+{{- if (ne .Values.loadBalancer.type "disable") -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -48,3 +49,4 @@ spec:
     {{- end }}
   selector:
     {{- include "livekit-server.selectorLabels" . | nindent 4 }}
+{{- end }}
