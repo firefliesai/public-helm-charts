@@ -347,4 +347,22 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/thanos-13.0.0/thanos-13.0.0.tgz
     version: 13.0.0
-generated: "2024-05-03T13:03:14.890869095Z"
+  uptime-kuma:
+  - apiVersion: v2
+    appVersion: 1.23.13
+    created: "2025-07-16T18:31:15.650835578Z"
+    description: A self-hosted Monitoring tool like "Uptime-Robot".
+    digest: 5333c9f6b511a00eff1a876a6cae1d0bbd9a457c471d66c1f6bb56da2e909026
+    home: https://github.com/dirsigler/uptime-kuma-helm
+    icon: https://raw.githubusercontent.com/louislam/uptime-kuma/master/public/icon.png
+    maintainers:
+    - email: dennis@irsigler.dev
+      name: dirsigler
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/uptime-kuma-2.21.3/uptime-kuma-2.21.3.tgz
+    version: 2.21.3
+generated: "2025-07-16T18:31:15.650863169Z"
