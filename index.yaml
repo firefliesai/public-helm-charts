@@ -310,6 +310,47 @@ entries:
       category: Analytics
       images: |
         - name: os-shell
+          image: ghcr.io/firefliesai/bitnami/os-shell:11-debian-11-r96
+        - name: thanos
+          image: ghcr.io/firefliesai/bitnami/thanos:0.34.0-debian-11-r3
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 0.34.0
+    created: "2025-09-04T14:13:43.418790546Z"
+    dependencies:
+    - condition: minio.enabled
+      name: minio
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Thanos is a highly available metrics system that can be added on
+      top of existing Prometheus deployments, providing a global query view across
+      all Prometheus installations.
+    digest: 422d785cc5f2a5b6dd40da5dd5187e5c6b547b929ea02c506bc740d900457138
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/thanos/img/thanos-stack-220x234.png
+    keywords:
+    - analytics
+    - monitoring
+    - prometheus
+    - thanos
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: thanos
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/thanos
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/thanos-13.0.1/thanos-13.0.1.tgz
+    version: 13.0.1
+  - annotations:
+      category: Analytics
+      images: |
+        - name: os-shell
           image: docker.io/bitnami/os-shell:11-debian-11-r96
         - name: thanos
           image: docker.io/bitnami/thanos:0.34.0-debian-11-r3
@@ -365,4 +406,4 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/uptime-kuma-2.21.3/uptime-kuma-2.21.3.tgz
     version: 2.21.3
-generated: "2025-07-16T18:31:15.650863169Z"
+generated: "2025-09-04T14:13:43.418814183Z"
