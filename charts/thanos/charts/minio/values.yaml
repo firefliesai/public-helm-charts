@@ -59,8 +59,8 @@ extraDeploy: []
 ## @param image.debug Specify if debug logs should be enabled
 ##
 image:
-  registry: docker.io
-  repository: bitnami/minio
+  registry: ghcr.io
+  repository: firefliesai/bitnami/minio
   tag: 2023.12.23-debian-11-r3
   digest: ""
   ## Specify a imagePullPolicy
@@ -88,7 +88,7 @@ image:
 ##
 clientImage:
   registry: docker.io
-  repository: bitnami/minio-client
+  repository: firefliesai/bitnami/minio-client
   tag: 2023.12.29-debian-11-r1
   digest: ""
 ## @param mode MinIO&reg; server mode (`standalone` or `distributed`)
@@ -981,8 +981,8 @@ volumePermissions:
   ## @param volumePermissions.image.pullSecrets Specify docker-registry secret names as an array
   ##
   image:
-    registry: docker.io
-    repository: bitnami/os-shell
+    registry: ghcr.io
+    repository: firefliesai/bitnami/os-shell
     tag: 11-debian-11-r93
     digest: ""
     pullPolicy: IfNotPresent
