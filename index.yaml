@@ -266,6 +266,50 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/n8n-0.20.1-rc.0/n8n-0.20.1-rc.0.tgz
     version: 0.20.1-rc.0
+  redis:
+  - annotations:
+      category: Database
+      images: |
+        - name: kubectl
+          image: docker.io/bitnami/kubectl:1.29.2-debian-12-r3
+        - name: os-shell
+          image: ghcr.io/firefliesai/bitnami/os-shell:12-debian-12-r18
+        - name: redis
+          image: ghcr.io/firefliesai/bitnamilegacy/redis:7.2.4-debian-12-r9
+        - name: redis-exporter
+          image: ghcr.io/firefliesai/bitnamilegacy/redis-exporter:1.58.0-debian-12-r6
+        - name: redis-sentinel
+          image: ghcr.io/bitnami/redis-sentinel:7.2.4-debian-12-r7
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 7.2.4
+    created: "2025-09-18T15:11:30.655355963Z"
+    dependencies:
+    - name: common
+      repository: file://./charts/common
+      tags:
+      - bitnami-common
+      version: 2.19.0
+    description: Redis(R) is an open source, advanced key-value store. It is often
+      referred to as a data structure server since keys can contain strings, hashes,
+      lists, sets and sorted sets.
+    digest: a00c67b53336487bbe051e05af48c83f94570f6446c6991445e44833c2bc584b
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    maintainers:
+    - name: Infrastructure Team
+      url: https://github.com/firefliesai/public-helm-charts
+    name: redis
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/redis
+    - https://github.com/firefliesai/public-helm-charts
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/redis-18.19.2/redis-18.19.2.tgz
+    version: 18.19.2
   redis-cluster:
   - annotations:
       category: Database
@@ -444,4 +488,4 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/uptime-kuma-2.21.3/uptime-kuma-2.21.3.tgz
     version: 2.21.3
-generated: "2025-09-18T15:07:38.325717471Z"
+generated: "2025-09-18T15:11:30.655377233Z"
