@@ -412,6 +412,49 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.2.4
+    created: "2025-09-18T17:07:37.846598593Z"
+    dependencies:
+    - name: common
+      repository: file://./charts/common
+      tags:
+      - bitnami-common
+      version: 2.19.0
+    description: Redis(R) is an open source, advanced key-value store. It is often
+      referred to as a data structure server since keys can contain strings, hashes,
+      lists, sets and sorted sets.
+    digest: 3624d115c9f9b89b0147e4a114e3c1a6875e17f04aa635b3f165c59904883170
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    maintainers:
+    - name: Infrastructure Team
+      url: https://github.com/firefliesai/public-helm-charts
+    name: redis
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/redis
+    - https://github.com/firefliesai/public-helm-charts
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/redis-18.19.6/redis-18.19.6.tgz
+    version: 18.19.6
+  - annotations:
+      category: Database
+      images: |
+        - name: kubectl
+          image: ghcr.io/firefliesai/bitnami/kubectl:1.29.2-debian-12-r3
+        - name: os-shell
+          image: ghcr.io/firefliesai/bitnami/os-shell:12-debian-12-r18
+        - name: redis
+          image: ghcr.io/firefliesai/bitnamilegacy/redis:7.2.4-debian-12-r9
+        - name: redis-exporter
+          image: ghcr.io/firefliesai/bitnamilegacy/redis-exporter:1.58.0-debian-12-r6
+        - name: redis-sentinel
+          image: ghcr.io/firefliesai/bitnami/redis-sentinel:7.2.4-debian-12-r7
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 7.2.4
     created: "2025-09-18T16:53:49.508474604Z"
     dependencies:
     - name: common
@@ -784,4 +827,4 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/uptime-kuma-2.21.3/uptime-kuma-2.21.3.tgz
     version: 2.21.3
-generated: "2025-09-18T16:53:49.746129528Z"
+generated: "2025-09-18T17:07:37.846642886Z"
