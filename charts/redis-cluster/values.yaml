@@ -77,8 +77,8 @@ diagnosticMode:
 ## @param image.debug Enable image debug mode
 ##
 image:
-  registry: docker.io
-  repository: bitnami/redis-cluster
+  registry: ghcr.io
+  repository: firefliesai/bitnamilegacy/redis-cluster
   tag: 7.2.4-debian-12-r11
   digest: ""
   ## Specify a imagePullPolicy
@@ -93,7 +93,8 @@ image:
   ## pullSecrets:
   ##   - myRegistryKeySecretName
   ##
-  pullSecrets: []
+  pullSecrets:
+    - regsec
   ## Enable debug mode
   ##
   debug: false
@@ -415,8 +416,8 @@ volumePermissions:
   ## @param volumePermissions.image.pullSecrets Specify docker-registry secret names as an array
   ##
   image:
-    registry: docker.io
-    repository: bitnami/os-shell
+    registry: ghcr.io
+    repository: firefliesai/bitnami/os-shell
     tag: 12-debian-12-r18
     digest: ""
     pullPolicy: IfNotPresent
@@ -427,7 +428,8 @@ volumePermissions:
     ## pullSecrets:
     ##   - myRegistryKeySecretName
     ##
-    pullSecrets: []
+    pullSecrets:
+      - regsec
   ## Containers Security Context
   ## @param volumePermissions.containerSecurityContext.enabled Enable Containers' Security Context
   ## @param volumePermissions.containerSecurityContext.seLinuxOptions [object,nullable] Set SELinux options in container
@@ -904,8 +906,8 @@ metrics:
   ## @param metrics.image.pullSecrets Specify docker-registry secret names as an array
   ##
   image:
-    registry: docker.io
-    repository: bitnami/redis-exporter
+    registry: ghcr.io
+    repository: firefliesai/bitnamilegacy/redis-exporter
     tag: 1.58.0-debian-12-r6
     digest: ""
     pullPolicy: IfNotPresent
@@ -916,7 +918,8 @@ metrics:
     ## pullSecrets:
     ##   - myRegistryKeySecretName
     ##
-    pullSecrets: []
+    pullSecrets:
+      - regsec
   ## @param metrics.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if metrics.resources is set (metrics.resources is recommended for production).
   ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
   ##
@@ -1110,8 +1113,8 @@ sysctlImage:
   ## @param sysctlImage.pullPolicy sysctlImage Init container pull policy
   ## @param sysctlImage.pullSecrets Specify docker-registry secret names as an array
   ##
-  registry: docker.io
-  repository: bitnami/os-shell
+  registry: ghcr.io
+  repository: firefliesai/bitnami/os-shell
   tag: 12-debian-12-r18
   digest: ""
   pullPolicy: IfNotPresent
@@ -1122,7 +1125,8 @@ sysctlImage:
   ## pullSecrets:
   ##   - myRegistryKeySecretName
   ##
-  pullSecrets: []
+  pullSecrets:
+    - regsec
   ## @param sysctlImage.mountHostSys Mount the host `/sys` folder to `/host-sys`
   ##
   mountHostSys: false
