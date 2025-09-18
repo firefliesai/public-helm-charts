@@ -1158,3 +1158,37 @@ sysctlImage:
   ##     memory: 1024Mi
   ##
   resources: {}
+
+## Image Registry Secret configuration for auto-creating registry pull secrets
+## @param imageRegistrySecret.enabled Enable creation of ExternalSecret for registry pull secrets
+## @param imageRegistrySecret.refreshInterval How often to refresh the secret from external store
+## @param imageRegistrySecret.secretStoreRef.name Name of the secret store reference
+## @param imageRegistrySecret.secretStoreRef.kind Kind of the secret store reference
+## @param imageRegistrySecret.target.name Name of the target secret to create
+## @param imageRegistrySecret.target.creationPolicy Creation policy for the target secret
+## @param imageRegistrySecret.data.remoteRef.key Key in the external secret store
+## @param imageRegistrySecret.data.remoteRef.version Version of the secret in external store
+##
+imageRegistrySecret:
+  ## Enable ExternalSecret creation for registry pull secrets
+  ##
+  enabled: true
+  ## Refresh interval for the external secret
+  ##
+  refreshInterval: "1h"
+  ## Secret store reference configuration
+  ##
+  secretStoreRef:
+    name: "gcp-secret-manager"
+    kind: "ClusterSecretStore"
+  ## Target secret configuration
+  ##
+  target:
+    name: "regsec"
+    creationPolicy: "Owner"
+  ## Data configuration for the external secret
+  ##
+  data:
+    remoteRef:
+      key: "dockerconfig-regsec-dec"
+      version: "latest"
