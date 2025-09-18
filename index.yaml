@@ -283,6 +283,49 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.4.0
+    created: "2025-09-18T16:38:42.636750018Z"
+    dependencies:
+    - name: common
+      repository: file://./charts/common
+      tags:
+      - bitnami-common
+      version: 2.22.0
+    description: Redis(R) is an open source, advanced key-value store. It is often
+      referred to as a data structure server since keys can contain strings, hashes,
+      lists, sets and sorted sets.
+    digest: 4053443462fe232466d38de873601f30b2d2afb364d6a7aacef54864aeab7d7d
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    maintainers:
+    - name: Infrastructure Team
+      url: https://github.com/firefliesai/public-helm-charts
+    name: redis
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/redis
+    - https://github.com/firefliesai/public-helm-charts
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/redis-20.0.4/redis-20.0.4.tgz
+    version: 20.0.4
+  - annotations:
+      category: Database
+      images: |
+        - name: kubectl
+          image: ghcr.io/firefliesai/bitnami/kubectl:1.31.0-debian-12-r0
+        - name: os-shell
+          image: ghcr.io/firefliesai/bitnami/os-shell:12-debian-12-r18
+        - name: redis
+          image: ghcr.io/firefliesai/bitnamilegacy/redis:7.4.0-debian-12-r1
+        - name: redis-exporter
+          image: ghcr.io/firefliesai/bitnamilegacy/redis-exporter:1.62.0-debian-12-r3
+        - name: redis-sentinel
+          image: ghcr.io/firefliesai/bitnami/redis-sentinel:7.4.0-debian-12-r0
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 7.4.0
     created: "2025-09-18T16:01:30.264332343Z"
     dependencies:
     - name: common
@@ -310,6 +353,49 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/redis-20.0.3/redis-20.0.3.tgz
     version: 20.0.3
+  - annotations:
+      category: Database
+      images: |
+        - name: kubectl
+          image: ghcr.io/firefliesai/bitnami/kubectl:1.29.2-debian-12-r3
+        - name: os-shell
+          image: ghcr.io/firefliesai/bitnami/os-shell:12-debian-12-r18
+        - name: redis
+          image: ghcr.io/firefliesai/bitnamilegacy/redis:7.2.4-debian-12-r9
+        - name: redis-exporter
+          image: ghcr.io/firefliesai/bitnamilegacy/redis-exporter:1.58.0-debian-12-r6
+        - name: redis-sentinel
+          image: ghcr.io/firefliesai/bitnami/redis-sentinel:7.2.4-debian-12-r7
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 7.2.4
+    created: "2025-09-18T16:38:42.393526615Z"
+    dependencies:
+    - name: common
+      repository: file://./charts/common
+      tags:
+      - bitnami-common
+      version: 2.19.0
+    description: Redis(R) is an open source, advanced key-value store. It is often
+      referred to as a data structure server since keys can contain strings, hashes,
+      lists, sets and sorted sets.
+    digest: dfb2a7e614f21e11e76e4a5a3476259fdc4f46a7a5a0c4d6325347e009f6cbc9
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    maintainers:
+    - name: Infrastructure Team
+      url: https://github.com/firefliesai/public-helm-charts
+    name: redis
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/redis
+    - https://github.com/firefliesai/public-helm-charts
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/redis-18.19.4/redis-18.19.4.tgz
+    version: 18.19.4
   - annotations:
       category: Database
       images: |
@@ -612,4 +698,4 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/uptime-kuma-2.21.3/uptime-kuma-2.21.3.tgz
     version: 2.21.3
-generated: "2025-09-18T16:24:11.871638119Z"
+generated: "2025-09-18T16:38:42.63682046Z"
