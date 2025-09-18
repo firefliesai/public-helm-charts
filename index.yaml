@@ -409,6 +409,44 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.2.4
+    created: "2025-09-18T16:24:11.871596531Z"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Redis(R) is an open source, scalable, distributed in-memory cache
+      for applications. It can be used to store and serve data in the form of strings,
+      hashes, lists, sets and sorted sets.
+    digest: 369a8228ac667a13ab6264cd03f12dec91acb7a56f269bd07fd88aea5c770b97
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: redis-cluster
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/redis-cluster
+    urls:
+    - https://github.com/firefliesai/public-helm-charts/releases/download/redis-cluster-10.0.3/redis-cluster-10.0.3.tgz
+    version: 10.0.3
+  - annotations:
+      category: Database
+      images: |
+        - name: os-shell
+          image: ghcr.io/firefliesai/bitnami/os-shell:12-debian-12-r18
+        - name: redis-cluster
+          image: ghcr.io/firefliesai/bitnamilegacy/redis-cluster:7.2.4-debian-12-r11
+        - name: redis-exporter
+          image: ghcr.io/firefliesai/bitnamilegacy/redis-exporter:1.58.0-debian-12-r6
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 7.2.4
     created: "2025-09-18T15:07:38.325688987Z"
     dependencies:
     - name: common
@@ -574,4 +612,4 @@ entries:
     urls:
     - https://github.com/firefliesai/public-helm-charts/releases/download/uptime-kuma-2.21.3/uptime-kuma-2.21.3.tgz
     version: 2.21.3
-generated: "2025-09-18T16:01:30.264356859Z"
+generated: "2025-09-18T16:24:11.871638119Z"
