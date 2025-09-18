@@ -2,15 +2,15 @@ annotations:
   category: Database
   images: |
     - name: kubectl
-      image: ghcr.io/firefliesai/bitnami/kubectl:1.31.0-debian-12-r0
+      image: ghcr.io/firefliesai/bitnamilegacy/kubectl:1.31.0-debian-12-r0
     - name: os-shell
-      image: ghcr.io/firefliesai/bitnami/os-shell:12-debian-12-r18
+      image: ghcr.io/firefliesai/bitnamilegacy/os-shell:12-debian-12-r18
     - name: redis
       image: ghcr.io/firefliesai/bitnamilegacy/redis:7.4.0-debian-12-r1
     - name: redis-exporter
       image: ghcr.io/firefliesai/bitnamilegacy/redis-exporter:1.62.0-debian-12-r3
     - name: redis-sentinel
-      image: ghcr.io/firefliesai/bitnami/redis-sentinel:7.4.0-debian-12-r0
+      image: ghcr.io/firefliesai/bitnamilegacy/redis-sentinel:7.4.0-debian-12-r0
   licenses: Apache-2.0
 apiVersion: v2
 appVersion: 7.4.0
