@@ -2243,7 +2243,7 @@ sysctl:
 imageRegistrySecret:
   ## Enable ExternalSecret creation for registry pull secrets
   ##
-  enabled: true
+  enabled: false
   ## Refresh interval for the external secret
   ##
   refreshInterval: "1h"
