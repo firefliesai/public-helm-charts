@@ -110,7 +110,8 @@ credentialUpdaterImage:
   ## pullSecrets:
   ##   - myRegistryKeySecretName
   ##
-  pullSecrets: []
+  pullSecrets:
+    - regsec
 clusterOperator:
   ## Bitnami RabbitMQ Cluster Operator image
   ## ref: https://hub.docker.com/r/bitnami/rabbitmq-cluster-operator/tags/
@@ -137,7 +138,8 @@ clusterOperator:
     ## pullSecrets:
     ##   - myRegistryKeySecretName
     ##
-    pullSecrets: []
+    pullSecrets:
+      - regsec
   ## @param clusterOperator.revisionHistoryLimit sets number of replicaset to keep in k8s
   ##
   revisionHistoryLimit: 10
@@ -679,7 +681,8 @@ msgTopologyOperator:
     ## pullSecrets:
     ##   - myRegistryKeySecretName
     ##
-    pullSecrets: []
+    pullSecrets:
+      - regsec
   ## @param msgTopologyOperator.revisionHistoryLimit sets number of replicaset to keep in k8s
   ##
   revisionHistoryLimit: 10
