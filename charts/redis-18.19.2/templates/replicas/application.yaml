@@ -527,7 +527,9 @@ spec:
   {{- else }}
   {{- $statefulsetName := printf "%s-replicas" (include "common.names.fullname" .) }}
   {{- $existingStatefulSet := lookup "apps/v1" "StatefulSet" (include "common.names.namespace" .) $statefulsetName }}
-  {{- if not $existingStatefulSet }}
+  {{- $persistenceMode := default "auto" .Values.replica.persistence.mode }}
+  {{- $renderClaimTemplates := or (eq $persistenceMode "claimTemplate") (and (eq $persistenceMode "auto") (not $existingStatefulSet)) }}
+  {{- if $renderClaimTemplates }}
   {{- if .Values.replica.persistentVolumeClaimRetentionPolicy.enabled }}
   persistentVolumeClaimRetentionPolicy:
     whenDeleted: {{ .Values.replica.persistentVolumeClaimRetentionPolicy.whenDeleted }}
