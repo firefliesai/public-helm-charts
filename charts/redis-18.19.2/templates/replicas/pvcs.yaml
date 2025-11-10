@@ -1,21 +1,22 @@
 {{- /*
-Copyright VMware, Inc.
-SPDX-License-Identifier: APACHE-2.0
+Create explicit PVC resources so Helm can update PVC.spec.resources.requests.storage when a StatefulSet already exists.
+This avoids trying to mutate StatefulSet.spec.volumeClaimTemplates (immutable).
 */}}
 
 {{- if and (eq .Values.architecture "replication") (not .Values.sentinel.enabled) }}
 {{- if and (eq .Values.replica.kind "StatefulSet") .Values.replica.persistence.enabled (not .Values.replica.persistence.existingClaim) }}
-{{- $statefulsetName := printf "%s-replicas" (include "common.names.fullname" .) }}
-{{- $existingStatefulSet := lookup "apps/v1" "StatefulSet" (include "common.names.namespace" .) $statefulsetName }}
-{{- if $existingStatefulSet }}
-{{- $fullname := include "common.names.fullname" . }}
-{{- $claimLabels := include "common.tplvalues.merge" ( dict "values" ( list .Values.master.persistence.labels .Values.commonLabels ) "context" . ) }}
+{{- $stsName := printf "%s-replicas" (include "common.names.fullname" .) }}
+{{- $existingStatefulSet := lookup "apps/v1" "StatefulSet" (include "common.names.namespace" .) $stsName }}
+{{- $persistenceMode := default "auto" .Values.replica.persistence.mode }}
+{{- $renderPerOrdinalPVCs := or (eq $persistenceMode "per-ordinal") (and (eq $persistenceMode "auto") $existingStatefulSet) }}
+{{- if $renderPerOrdinalPVCs }}
+{{- $claimLabels := include "common.tplvalues.merge" ( dict "values" ( list .Values.replica.persistence.labels .Values.commonLabels ) "context" . ) }}
 {{- range $i := until (int .Values.replica.replicaCount) }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ printf "redis-data-%s-replicas-%d" $fullname $i }}
+  name: {{ printf "redis-data-%s-%d" $stsName $i }}
   namespace: {{ include "common.names.namespace" $ | quote }}
   labels: {{- include "common.labels.matchLabels" ( dict "customLabels" $claimLabels "context" $ ) | nindent 4 }}
     app.kubernetes.io/component: replica
