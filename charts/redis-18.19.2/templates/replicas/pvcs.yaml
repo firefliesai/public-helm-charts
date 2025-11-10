@@ -1,0 +1,43 @@
+{{- /*
+Copyright VMware, Inc.
+SPDX-License-Identifier: APACHE-2.0
+*/}}
+
+{{- if and (eq .Values.architecture "replication") (not .Values.sentinel.enabled) }}
+{{- if and (eq .Values.replica.kind "StatefulSet") .Values.replica.persistence.enabled (not .Values.replica.persistence.existingClaim) }}
+{{- $statefulsetName := printf "%s-replicas" (include "common.names.fullname" .) }}
+{{- $existingStatefulSet := lookup "apps/v1" "StatefulSet" (include "common.names.namespace" .) $statefulsetName }}
+{{- if $existingStatefulSet }}
+{{- $fullname := include "common.names.fullname" . }}
+{{- $claimLabels := include "common.tplvalues.merge" ( dict "values" ( list .Values.master.persistence.labels .Values.commonLabels ) "context" . ) }}
+{{- range $i := until (int .Values.replica.replicaCount) }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "redis-data-%s-replicas-%d" $fullname $i }}
+  namespace: {{ include "common.names.namespace" $ | quote }}
+  labels: {{- include "common.labels.matchLabels" ( dict "customLabels" $claimLabels "context" $ ) | nindent 4 }}
+    app.kubernetes.io/component: replica
+  {{- if $.Values.replica.persistence.annotations }}
+  annotations: {{- toYaml $.Values.replica.persistence.annotations | nindent 4 }}
+  {{- end }}
+spec:
+  accessModes:
+  {{- range $.Values.replica.persistence.accessModes }}
+    - {{ . | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ $.Values.replica.persistence.size | quote }}
+  {{- if $.Values.replica.persistence.selector }}
+  selector: {{- include "common.tplvalues.render" (dict "value" $.Values.replica.persistence.selector "context" $) | nindent 4 }}
+  {{- end }}
+  {{- if $.Values.replica.persistence.dataSource }}
+  dataSource: {{- include "common.tplvalues.render" (dict "value" $.Values.replica.persistence.dataSource "context" $) | nindent 4 }}
+  {{- end }}
+  {{- include "common.storage.class" (dict "persistence" $.Values.replica.persistence "global" $.Values.global) | nindent 2 }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}

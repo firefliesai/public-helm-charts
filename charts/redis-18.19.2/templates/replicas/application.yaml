@@ -525,6 +525,9 @@ spec:
           persistentVolumeClaim:
             claimName: {{ printf "%s" (tpl .Values.replica.persistence.existingClaim .) }}
   {{- else }}
+  {{- $statefulsetName := printf "%s-replicas" (include "common.names.fullname" .) }}
+  {{- $existingStatefulSet := lookup "apps/v1" "StatefulSet" (include "common.names.namespace" .) $statefulsetName }}
+  {{- if not $existingStatefulSet }}
   {{- if .Values.replica.persistentVolumeClaimRetentionPolicy.enabled }}
   persistentVolumeClaimRetentionPolicy:
     whenDeleted: {{ .Values.replica.persistentVolumeClaimRetentionPolicy.whenDeleted }}
@@ -556,5 +559,6 @@ spec:
         dataSource: {{- include "common.tplvalues.render" (dict "value" .Values.replica.persistence.dataSource "context" $) | nindent 10 }}
         {{- end }}
         {{- include "common.storage.class" (dict "persistence" .Values.replica.persistence "global" .Values.global) | nindent 8 }}
+  {{- end }}
   {{- end }}
 {{- end }}
